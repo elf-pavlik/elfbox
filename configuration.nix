@@ -59,13 +59,14 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.alice = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     tree
-  #   ];
-  # };
+  users.users.elf-pavlik = {
+    isNormalUser = true;
+    createHome = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  # packages = with pkgs; [
+  #   tree
+  # ];
+  };
 
   # programs.firefox.enable = true;
 
