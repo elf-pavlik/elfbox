@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -25,8 +23,21 @@
     userName = "elf-pavlik";
   };
 
-  programs.neovim = {
+  programs.neovim.enable = true;
+
+  programs.kitty.enable = true; # required for the default Hyprland config
+
+  wayland.windowManager.hyprland = {
     enable = true;
+    settings = {
+      "$mod" = "SUPER";
+      exec-once = [
+        "kitty"
+      ];
+    };
   };
+
+  # Optional, hint Electron apps to use Wayland:
+  # home.sessionVariables.NIXOS_OZONE_WL = "1";
 }
 
