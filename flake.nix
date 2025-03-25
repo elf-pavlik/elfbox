@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs: {
     nixosConfigurations.elfbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -17,8 +19,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.elf-pavlik = import ./home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
         }
       ];
     };
   };
 }
+
