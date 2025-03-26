@@ -17,4 +17,10 @@
 * [ ] docker
 * [ ] devbox / devenv
 * [ ] nixvim?
+* [ ] chromium
+* [ ] discord
+* [ ] iriun (webcam from andoid)
+* [ ] mpv
+* [ ] keymapp (ZSA Voyager)
+* [ ] starshipt
 
