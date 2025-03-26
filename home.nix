@@ -23,6 +23,7 @@
     inputs.zen-browser.packages.${pkgs.system}.default
     nodejs
     pavucontrol
+    yazi
   ];
 
   programs.git = {

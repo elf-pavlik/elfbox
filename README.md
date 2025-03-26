@@ -11,10 +11,10 @@
 * [x] nodejs (temporarly at user level)
 * [x] pavucontrol
 * [x] docker
+* [x] yazi (file browser)
 * [ ] OBS
 * [ ] transmission
 * [ ] app launcher
-* [ ] file browser
 * [ ] devbox / devenv
 * [ ] nixvim?
 * [ ] chromium
