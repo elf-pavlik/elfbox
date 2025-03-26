@@ -32,18 +32,18 @@
 
   programs.neovim.enable = true;
 
-  programs.kitty.enable = true; # required for the default Hyprland config
+  programs.ghostty.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       exec-once = [
-        "kitty"
+        "ghostty"
         "[workspace 1 silent] zen"
       ];
       "$mod" = "SUPER";
       bind = [
-        "$mod, Q, exec, kitty"
+        "$mod, Q, exec, ghostty"
         "$mod, X, killactive"
         "$mod, F, fullscreen"
         "$mod, V, togglefloating"
