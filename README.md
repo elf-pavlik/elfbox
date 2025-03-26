@@ -10,11 +10,11 @@
 * [x] ghostty
 * [x] nodejs (temporarly at user level)
 * [x] pavucontrol
+* [x] docker
 * [ ] OBS
 * [ ] transmission
 * [ ] app launcher
 * [ ] file browser
-* [ ] docker
 * [ ] devbox / devenv
 * [ ] nixvim?
 * [ ] chromium

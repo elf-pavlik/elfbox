@@ -62,11 +62,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings = {
+    data-root = "/home/docker";
+  };
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.elf-pavlik = {
     isNormalUser = true;
     createHome = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker"];
   # packages = with pkgs; [
   #   tree
   # ];
