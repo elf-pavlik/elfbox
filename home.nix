@@ -1,6 +1,10 @@
 { config, pkgs, system, inputs, ... }:
 
 {
+
+  imports = [
+    inputs.ags.homeManagerModules.default
+  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "elf-pavlik";
@@ -24,6 +28,8 @@
     nodejs
     pavucontrol
     yazi
+    inputs.ags.packages.${pkgs.system}.io
+     inputs.ags.packages.${pkgs.system}.notifd
   ];
 
   programs.git = {
@@ -42,10 +48,12 @@
       exec-once = [
         "ghostty"
         "[workspace 1 silent] zen"
+	"ags run"
       ];
       "$mod" = "SUPER";
       bind = [
         "$mod, Q, exec, ghostty"
+        "$mod, R, exec, ags toggle launcher --instance launcher"
         "$mod, X, killactive"
         "$mod, F, fullscreen"
         "$mod, V, togglefloating"
@@ -67,4 +75,12 @@
 
   # Optional, hint Electron apps to use Wayland:
   # home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  programs.ags = {
+    enable = true;
+    configDir = ./ags;
+    extraPackages = with pkgs; [
+      inputs.ags.packages.${pkgs.system}.apps
+   ];
+  };
 }
