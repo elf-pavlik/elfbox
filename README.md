@@ -12,13 +12,13 @@
 * [x] pavucontrol
 * [x] docker
 * [x] yazi (file browser)
+* [x] discord
 * [ ] OBS
 * [ ] transmission
 * [ ] app launcher
 * [ ] devbox / devenv
 * [ ] nixvim?
 * [ ] chromium
-* [ ] discord
 * [ ] iriun (webcam from andoid)
 * [ ] mpv
 * [ ] keymapp (ZSA Voyager)

@@ -29,7 +29,8 @@
     pavucontrol
     yazi
     inputs.ags.packages.${pkgs.system}.io
-     inputs.ags.packages.${pkgs.system}.notifd
+    inputs.ags.packages.${pkgs.system}.notifd
+    discord-canary
   ];
 
   programs.git = {
