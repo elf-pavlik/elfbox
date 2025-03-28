@@ -42,6 +42,10 @@
     enable = true;
     userEmail = "elf-pavlik@hackers4peace.net";
     userName = "elf-pavlik";
+    aliases = {
+      fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+      l = "log --graph --decorate --pretty=oneline --abbrev-commit";
+    };
   };
 
   programs.nixvim = {
