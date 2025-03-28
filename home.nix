@@ -35,6 +35,7 @@
     devbox
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
+    keymapp
   ];
 
   programs.git = {

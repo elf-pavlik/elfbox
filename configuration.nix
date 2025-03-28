@@ -14,6 +14,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "discord-canary"
+      "keymapp"
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -22,6 +23,7 @@
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  hardware.keyboard.zsa.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.

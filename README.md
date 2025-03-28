@@ -18,10 +18,10 @@
 * [x] starship
 * [x] nerd fonts
 * [x] nixvim
+* [x] keymapp (ZSA Voyager)
 * [ ] OBS
 * [ ] transmission
 * [ ] chromium
 * [ ] iriun (webcam from andoid)
 * [ ] mpv
-* [ ] keymapp (ZSA Voyager)
 
