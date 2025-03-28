@@ -5,7 +5,6 @@
 * [x] home-manager
 * [x] hyprland
 * [x] autologin
-* [x] neovim
 * [x] zen-browser
 * [x] ghostty
 * [x] nodejs (temporarly at user level)
@@ -18,9 +17,9 @@
 * [x] zsh
 * [x] starship
 * [x] nerd fonts
+* [x] nixvim
 * [ ] OBS
 * [ ] transmission
-* [ ] nixvim?
 * [ ] chromium
 * [ ] iriun (webcam from andoid)
 * [ ] mpv

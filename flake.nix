@@ -10,6 +10,8 @@
     ags.url = "github:Aylur/ags";
     devbox.url = "github:jetify-com/devbox";
     devbox.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs: {

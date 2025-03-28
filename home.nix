@@ -4,6 +4,7 @@
 
   imports = [
     inputs.ags.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -42,7 +43,22 @@
     userName = "elf-pavlik";
   };
 
-  programs.neovim.enable = true;
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+    plugins.lsp.servers = {
+      ts_ls.enable = true;
+      nixd.enable = true;
+      turtle_ls.enable = true;
+      volar.enable = true;
+      yamlls.enable = true;
+      pylsp.enable = true;
+      lua_ls.enable = true;
+      html.enable = true;
+      dockerls.enable = true;
+    };
+  };
 
   programs.ghostty = {
     enable = true;
