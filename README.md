@@ -7,14 +7,15 @@
 * [x] autologin
 * [x] zen-browser
 * [x] ghostty
-* [x] nodejs (temporarly at user level)
 * [x] pavucontrol
 * [x] docker
 * [x] yazi (file browser)
 * [x] app launcher (ags)
 * [x] discord
-* [x] devbox / devenv
+* [x] devbox
 * [x] zsh
+* [x] fzf
+* [x] zoxide
 * [x] starship
 * [x] nerd fonts
 * [x] nixvim
