@@ -24,6 +24,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true;
+  xdg.enable = true;
 
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
@@ -68,11 +69,20 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+    settings = {
+      font-size = 15;
+      font-family = "FiraCode Nerd Font";
+      window-padding-x = 10;
+      window-padding-y = 10;
+    };
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      decoration = {
+        rounding = 20;
+      };
       exec-once = [
         "ghostty"
         "[workspace 1 silent] zen"
