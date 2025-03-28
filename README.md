@@ -15,8 +15,9 @@
 * [x] app launcher (ags)
 * [x] discord
 * [x] devbox / devenv
-* [ ] zsh
-* [ ] starship
+* [x] zsh
+* [x] starship
+* [x] nerd fonts
 * [ ] OBS
 * [ ] transmission
 * [ ] nixvim?
