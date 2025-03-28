@@ -31,6 +31,7 @@
     inputs.ags.packages.${pkgs.system}.io
     inputs.ags.packages.${pkgs.system}.notifd
     discord-canary
+    devbox
   ];
 
   programs.git = {

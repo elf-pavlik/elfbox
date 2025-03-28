@@ -12,15 +12,15 @@
 * [x] pavucontrol
 * [x] docker
 * [x] yazi (file browser)
+* [x] app launcher (ags)
 * [x] discord
+* [x] devbox / devenv
 * [ ] OBS
 * [ ] transmission
-* [ ] app launcher
-* [ ] devbox / devenv
 * [ ] nixvim?
 * [ ] chromium
 * [ ] iriun (webcam from andoid)
 * [ ] mpv
 * [ ] keymapp (ZSA Voyager)
-* [ ] starshipt
+* [ ] starship
 

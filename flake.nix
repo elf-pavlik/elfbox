@@ -8,6 +8,8 @@
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     ags.url = "github:Aylur/ags";
+    devbox.url = "github:jetify-com/devbox";
+    devbox.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs: {
