@@ -119,6 +119,11 @@
     history.size = 10000;
   };
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.starship = {
     enable = true;
     settings = {
