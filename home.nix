@@ -41,7 +41,10 @@
 
   programs.neovim.enable = true;
 
-  programs.ghostty.enable = true;
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -83,5 +86,16 @@
     extraPackages = with pkgs; [
       inputs.ags.packages.${pkgs.system}.apps
    ];
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    
+    shellAliases = {
+      ll = "ls -l";
+    };
+    history.size = 10000;
   };
 }

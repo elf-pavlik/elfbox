@@ -15,6 +15,8 @@
 * [x] app launcher (ags)
 * [x] discord
 * [x] devbox / devenv
+* [ ] zsh
+* [ ] starship
 * [ ] OBS
 * [ ] transmission
 * [ ] nixvim?
@@ -22,5 +24,4 @@
 * [ ] iriun (webcam from andoid)
 * [ ] mpv
 * [ ] keymapp (ZSA Voyager)
-* [ ] starship
 
