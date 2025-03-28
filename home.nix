@@ -25,7 +25,6 @@
 
   home.packages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
-    nodejs
     pavucontrol
     yazi
     inputs.ags.packages.${pkgs.system}.io
