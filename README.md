@@ -20,9 +20,8 @@
 * [x] nerd fonts
 * [x] nixvim
 * [x] keymapp (ZSA Voyager)
-* [ ] OBS
+* [x] OBS
 * [ ] transmission
 * [ ] chromium
-* [ ] iriun (webcam from andoid)
 * [ ] mpv
 
