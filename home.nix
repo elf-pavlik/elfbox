@@ -37,6 +37,7 @@
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
     keymapp
+    transmission_4-gtk
   ];
 
   home.sessionVariables = {

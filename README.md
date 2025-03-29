@@ -23,5 +23,5 @@
 * [x] OBS
 * [x] chromium
 * [x] mpv
-* [ ] transmission
+* [x] transmission (gtk)
 
