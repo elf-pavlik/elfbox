@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hyprland, ... }:
 
 {
   imports =
@@ -83,6 +83,14 @@
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    # set the flake package
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   # programs.firefox.enable = true;
 

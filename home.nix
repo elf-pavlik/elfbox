@@ -39,6 +39,10 @@
     keymapp
   ];
 
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   programs.git = {
     enable = true;
     userEmail = "elf-pavlik@hackers4peace.net";
@@ -79,6 +83,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
+    portalPackage = null;
     settings = {
       decoration = {
         rounding = 20;
