@@ -22,6 +22,6 @@
 * [x] keymapp (ZSA Voyager)
 * [x] OBS
 * [x] chromium
+* [x] mpv
 * [ ] transmission
-* [ ] mpv
 
