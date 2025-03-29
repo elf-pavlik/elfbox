@@ -21,7 +21,7 @@
 * [x] nixvim
 * [x] keymapp (ZSA Voyager)
 * [x] OBS
+* [x] chromium
 * [ ] transmission
-* [ ] chromium
 * [ ] mpv
 

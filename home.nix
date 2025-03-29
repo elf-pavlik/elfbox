@@ -174,4 +174,6 @@
       obs-pipewire-audio-capture
     ];
   };
+
+  programs.chromium.enable = true;
 }
