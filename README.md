@@ -38,4 +38,4 @@
 * [x] OBS Studio
 * [x] mpv
 * [x] transmission (gtk)
-
+* [x] cameractrls (gtk)

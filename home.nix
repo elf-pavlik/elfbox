@@ -38,6 +38,7 @@
     nerd-fonts.symbols-only
     keymapp
     transmission_4-gtk
+    cameractrls-gtk4
   ];
 
   home.sessionVariables = {
