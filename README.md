@@ -25,7 +25,7 @@
 
 ## Dev
 
-* [x] nixvim
+* [x] lazyvim
 * [x] docker
 * [x] devbox
 * [x] chromium

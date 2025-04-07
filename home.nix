@@ -1,10 +1,9 @@
 { config, pkgs, system, inputs, ... }:
 
 {
-
   imports = [
     inputs.ags.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.LazyVim.homeManagerModules.default
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -52,23 +51,6 @@
     aliases = {
       fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
       l = "log --graph --decorate --pretty=oneline --abbrev-commit";
-    };
-  };
-
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    plugins.lsp.servers = {
-      ts_ls.enable = true;
-      nixd.enable = true;
-      turtle_ls.enable = true;
-      volar.enable = true;
-      yamlls.enable = true;
-      pylsp.enable = true;
-      lua_ls.enable = true;
-      html.enable = true;
-      dockerls.enable = true;
     };
   };
 
@@ -166,6 +148,10 @@
         error_symbol = "[✗](bold red) ";
       };
     }; 
+  };
+
+  programs.lazyvim = {
+    enable = true;
   };
 
   programs.obs-studio = {
