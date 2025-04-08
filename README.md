@@ -16,6 +16,7 @@
 ## CLI
 
 * [x] ghostty
+* [x] tmux
 * [x] zsh
 * [x] fzf
 * [x] zoxide

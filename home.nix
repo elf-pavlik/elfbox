@@ -152,6 +152,51 @@
 
   programs.lazyvim = {
     enable = true;
+    plugins = with pkgs; [
+      vimPlugins.vim-tmux-navigator
+    ];
+    pluginsFile."plugins.lua".source = ./plugins.lua;
+  };
+
+  programs.tmux = {
+    enable = true;
+    shortcut = "a";
+    aggressiveResize = true;
+    baseIndex = 1;
+    newSession = true;
+    # Stop tmux+escape craziness.
+    escapeTime = 0;
+
+    plugins = with pkgs; [
+      tmuxPlugins.better-mouse-mode
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.catppuccin
+    ];
+
+    extraConfig = ''
+      # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
+      set -g default-terminal "xterm-256color"
+      set -ga terminal-overrides ",*256col*:Tc"
+      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+      set-environment -g COLORTERM "truecolor"
+
+      # Mouse works as expected
+      set-option -g mouse on
+      # easy-to-remember split pane commands
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
+      # Theme
+      set -g @catppuccin_flavor 'mocha'
+      set -g @catppuccin_window_status_style 'rounded'
+      set -g status-right-length 100
+      set -g status-left-length 100
+      set -g status-left ""
+      set -g status-right "#{E:@catppuccin_status_application}"
+      set -ag status-right "#{E:@catppuccin_status_session}"
+      set -ag status-right "#{E:@catppuccin_status_uptime}"
+    '';
   };
 
   programs.obs-studio = {
