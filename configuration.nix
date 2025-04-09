@@ -74,6 +74,8 @@
     data-root = "/home/docker";
   };
 
+  services.udisks2.enable = true;
+
   programs.obs-studio = {
     enable = true;
     enableVirtualCamera = true;
