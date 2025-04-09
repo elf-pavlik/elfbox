@@ -74,6 +74,10 @@
     data-root = "/home/docker";
   };
 
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.elf-pavlik = {
