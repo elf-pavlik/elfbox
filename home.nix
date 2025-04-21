@@ -38,6 +38,7 @@
     keymapp
     transmission_4-gtk
     cameractrls-gtk4
+    p7zip
   ];
 
   home.sessionVariables = {
