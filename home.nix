@@ -151,12 +151,20 @@
     }; 
   };
 
+  programs.neovim = {
+    extraPackages = with pkgs; [
+      typescript-language-server
+    ];
+  };
+
   programs.lazyvim = {
     enable = true;
-    plugins = with pkgs; [
-      vimPlugins.vim-tmux-navigator
+    plugins = with pkgs.vimPlugins; [
+      vim-tmux-navigator
+      nvim-lspconfig
     ];
-    pluginsFile."plugins.lua".source = ./plugins.lua;
+    pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
+    pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
   };
 
   programs.tmux = {
