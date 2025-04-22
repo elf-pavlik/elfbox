@@ -39,6 +39,9 @@
     transmission_4-gtk
     cameractrls-gtk4
     p7zip
+    grim
+    slurp
+    wl-clipboard
   ];
 
   home.sessionVariables = {
@@ -83,6 +86,7 @@
       bind = [
         "$mod, Q, exec, ghostty"
         "$mod, R, exec, ags toggle launcher --instance launcher"
+        "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         "$mod, X, killactive"
         "$mod, F, fullscreen"
         "$mod, V, togglefloating"
