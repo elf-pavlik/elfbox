@@ -156,6 +156,7 @@
   };
 
   programs.neovim = {
+    defaultEditor = true;
     extraPackages = with pkgs; [
       typescript-language-server
     ];
