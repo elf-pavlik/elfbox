@@ -58,6 +58,19 @@
     };
   };
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        email = "elf-pavlik@hackers4peace.net";
+        name = "elf Pavlik";
+      };
+      ui = {
+        default-command = "log";
+      };
+    };
+  };
+
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
@@ -121,11 +134,13 @@
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    
+    history.size = 10000;
     shellAliases = {
       ll = "ls -l";
     };
-    history.size = 10000;
+    initExtra = ''
+      source <(COMPLETE=zsh jj)
+    '';
   };
 
   programs.fzf = {
