@@ -91,9 +91,9 @@
         rounding = 20;
       };
       exec-once = [
-        "ghostty"
         "[workspace 1 silent] zen"
-	"ags run"
+        "[workspace 2 silent] ghostty"
+	      "ags run"
       ];
       "$mod" = "SUPER";
       bind = [
