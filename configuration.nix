@@ -26,6 +26,32 @@
   hardware.keyboard.zsa.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
+
+  environment.etc."resolv.conf".text = ''
+    nameserver 127.0.0.1
+    nameserver 1.1.1.1
+    nameserver 8.8.8.8
+    nameserver 8.8.4.4
+  '';
+
+  networking = {
+    useDHCP = false;
+    enableIPv6 = false;
+    interfaces.wlp6s0.useDHCP = false;
+    interfaces.enp7s0 = {
+      ipv4.addresses = [
+        { address = "10.0.106.1"; prefixLength = 16; }
+      ];
+    };
+    defaultGateway = {
+      address = "10.0.0.1";
+      interface = "enp7s0";
+    };
+    hosts = {
+      "127.0.0.1" = [ "server" ];
+    };
+  };
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
