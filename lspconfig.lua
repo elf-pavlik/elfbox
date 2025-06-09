@@ -2,7 +2,19 @@ return {
 	"neovim/nvim-lspconfig",
 	opts = {
 		servers = {
-			ts_ls = {},
+			volar = {
+				init_options = {
+					vue = {
+						-- disable hybrid mode
+						hybridMode = false,
+					},
+				},
+				filetypes = {
+					"javascript",
+					"typescript",
+					"vue",
+				},
+			},
 		},
 	},
 }

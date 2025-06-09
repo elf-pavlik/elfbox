@@ -174,6 +174,7 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       typescript-language-server
+      vue-language-server
     ];
   };
 
