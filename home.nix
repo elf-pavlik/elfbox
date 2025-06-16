@@ -146,6 +146,9 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    tmux = {
+      enableShellIntegration = true;
+    };
   };
 
   programs.zoxide = {
@@ -227,6 +230,11 @@
       set -ag status-right "#{E:@catppuccin_status_session}"
       set -ag status-right "#{E:@catppuccin_status_uptime}"
     '';
+  };
+
+  programs.sesh = {
+    enable = true;
+    enableTmuxIntegration = true;
   };
 
   programs.obs-studio = {
