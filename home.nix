@@ -89,7 +89,7 @@
         rounding = 20;
       };
       exec-once = [
-        "[workspace 1 silent] zen"
+        "[workspace 1 silent] qutebrowser"
         "[workspace 2 silent] ghostty"
       ];
       "$mod" = "SUPER";
@@ -238,6 +238,16 @@
   };
 
   programs.chromium.enable = true;
+
+  programs.qutebrowser = {
+    enable = true;
+
+    settings = {
+      tabs.show = "never";
+      statusbar.show = "never";
+      colors.webpage.preferred_color_scheme = "dark";
+    };
+  };
 
   programs.mpv = {
     enable = true;
