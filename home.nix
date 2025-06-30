@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.LazyVim.homeManagerModules.default
+    inputs.walker.homeManagerModules.default
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -94,6 +95,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, Q, exec, ghostty"
+        "$mod, R, exec, walker"
         "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         "$mod, X, killactive"
         "$mod, F, fullscreen"
@@ -155,6 +157,11 @@
         error_symbol = "[✗](bold red) ";
       };
     }; 
+  };
+
+  programs.walker = {
+    enable = true;
+    runAsService = true;
   };
 
   programs.neovim = {

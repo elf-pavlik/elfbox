@@ -19,6 +19,7 @@
       url = "github:matadaniel/LazyVim-module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    walker.url = "github:abenz1267/walker";
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
