@@ -88,6 +88,10 @@
       decoration = {
         rounding = 20;
       };
+      cursor = {
+        inactive_timeout = 2;
+        hide_on_key_press = true;
+      };
       exec-once = [
         "[workspace 1 silent] qutebrowser"
         "[workspace 2 silent] ghostty"
@@ -203,6 +207,7 @@
       set -ga terminal-overrides ",*256col*:Tc"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
+      set-option -g status-position top
 
       # Mouse works as expected
       set-option -g mouse on
@@ -219,7 +224,7 @@
       set -g status-left ""
       set -g status-right "#{E:@catppuccin_status_application}"
       set -ag status-right "#{E:@catppuccin_status_session}"
-      set -ag status-right "#{E:@catppuccin_status_uptime}"
+      #set -ag status-right "#{E:@catppuccin_status_uptime}"
     '';
   };
 
