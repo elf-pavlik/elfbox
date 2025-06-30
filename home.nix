@@ -122,7 +122,7 @@
     shellAliases = {
       ll = "ls -l";
     };
-    initExtra = ''
+    initContent = ''
       source <(COMPLETE=zsh jj)
     '';
   };
