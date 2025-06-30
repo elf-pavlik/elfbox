@@ -2,7 +2,6 @@
 
 {
   imports = [
-    inputs.ags.homeManagerModules.default
     inputs.LazyVim.homeManagerModules.default
   ];
   # Home Manager needs a bit of information about you and the
@@ -29,8 +28,6 @@
     inputs.zen-browser.packages.${pkgs.system}.default
     pavucontrol
     yazi
-    inputs.ags.packages.${pkgs.system}.io
-    inputs.ags.packages.${pkgs.system}.notifd
     discord-canary
     devbox
     nerd-fonts.fira-code
@@ -93,12 +90,10 @@
       exec-once = [
         "[workspace 1 silent] zen"
         "[workspace 2 silent] ghostty"
-	      "ags run"
       ];
       "$mod" = "SUPER";
       bind = [
         "$mod, Q, exec, ghostty"
-        "$mod, R, exec, ags toggle launcher --instance launcher"
         "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         "$mod, X, killactive"
         "$mod, F, fullscreen"
@@ -117,17 +112,6 @@
         "$mod SHIFT, p, movetoworkspace, 4"
       ];
     };
-  };
-
-  # Optional, hint Electron apps to use Wayland:
-  # home.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  programs.ags = {
-    enable = true;
-    configDir = ./ags;
-    extraPackages = with pkgs; [
-      inputs.ags.packages.${pkgs.system}.apps
-   ];
   };
 
   programs.zsh = {

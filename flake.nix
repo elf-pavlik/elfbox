@@ -19,7 +19,6 @@
       url = "github:matadaniel/LazyVim-module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags.url = "github:Aylur/ags";
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
