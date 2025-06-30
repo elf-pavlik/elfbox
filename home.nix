@@ -186,6 +186,8 @@
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
   };
 
+  programs.ripgrep.enable = true;
+
   programs.tmux = {
     enable = true;
     shortcut = "a";
