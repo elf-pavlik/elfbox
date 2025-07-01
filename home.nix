@@ -40,6 +40,7 @@
     grim
     slurp
     wl-clipboard
+    lima
   ];
 
   home.sessionVariables = {
