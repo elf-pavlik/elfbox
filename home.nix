@@ -269,8 +269,9 @@
 
     settings = {
       tabs.show = "never";
-      statusbar.show = "never";
+      statusbar.show = "always";
       colors.webpage.preferred_color_scheme = "dark";
+      editor.command = ["ghostty" "-e" "nvim" "{file}" "+startinsert" "+call cursor({line}, {column})"];
     };
   };
 
