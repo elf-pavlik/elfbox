@@ -146,6 +146,15 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    # results in environment variable "HSA_OVERRIDE_GFX_VERSION=10.3.0"
+    rocmOverrideGfx = "10.3.0";
+  };
+
+  services.open-webui.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

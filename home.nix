@@ -41,6 +41,9 @@
     slurp
     wl-clipboard
     lima
+    fastfetch
+    amdgpu_top
+    glances
   ];
 
   home.sessionVariables = {
