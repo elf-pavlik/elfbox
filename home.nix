@@ -185,9 +185,12 @@
     plugins = with pkgs.vimPlugins; [
       vim-tmux-navigator
       nvim-lspconfig
+      avante-nvim
+      render-markdown-nvim
     ];
     pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
+    pluginsFile."avante.lua".source = ./avante.lua;
   };
 
   programs.ripgrep.enable = true;
