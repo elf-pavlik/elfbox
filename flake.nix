@@ -22,6 +22,7 @@
     };
     walker.url = "github:abenz1267/walker";
     hyprland.url = "github:hyprwm/Hyprland";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -31,6 +32,7 @@
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
+        inputs.catppuccin.nixosModules.catppuccin
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

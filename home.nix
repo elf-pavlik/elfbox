@@ -4,6 +4,7 @@
   imports = [
     inputs.LazyVim.homeManagerModules.default
     inputs.walker.homeManagerModules.default
+    inputs.catppuccin.homeModules.catppuccin
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -48,6 +49,11 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+  };
+
+  catppuccin = {
+      enable = true;
+      flavor = "macchiato";
   };
 
   programs.git = {
@@ -191,6 +197,7 @@
     pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
     pluginsFile."avante.lua".source = ./avante.lua;
+    pluginsFile."catppuccin.lua".source = ./catppuccin.lua;
   };
 
   programs.ripgrep.enable = true;
@@ -204,15 +211,14 @@
     # Stop tmux+escape craziness.
     escapeTime = 0;
 
-    plugins = with pkgs; [
-      tmuxPlugins.better-mouse-mode
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.catppuccin
+    plugins = with pkgs.tmuxPlugins; [
+      better-mouse-mode
+      vim-tmux-navigator
     ];
 
     extraConfig = ''
       # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-      set -g default-terminal "xterm-256color"
+      set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",*256col*:Tc"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
@@ -226,7 +232,6 @@
       bind c new-window -c "#{pane_current_path}"
 
       # Theme
-      set -g @catppuccin_flavor 'mocha'
       set -g @catppuccin_window_status_style 'rounded'
       set -g status-right-length 100
       set -g status-left-length 100
@@ -277,6 +282,7 @@
       tabs.show = "never";
       statusbar.show = "always";
       colors.webpage.preferred_color_scheme = "dark";
+      colors.webpage.bg = "#24273a";
       editor.command = ["ghostty" "-e" "nvim" "{file}" "+startinsert" "+call cursor({line}, {column})"];
     };
   };
