@@ -90,6 +90,10 @@
     };
   };
 
+  services.swayosd = {
+    enable = true;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -126,6 +130,11 @@
         "$mod SHIFT, i, movetoworkspace, 2"
         "$mod SHIFT, o, movetoworkspace, 3"
         "$mod SHIFT, p, movetoworkspace, 4"
+        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume 10"
+        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -10"
+        ", XF86AudioMute , exec, swayosd-client --output-volume mute-toggle"
+        "$mod, XF86AudioRaiseVolume, exec, ddcutil -d 1 setvcp 10 + 10"
+        "$mod, XF86AudioLowerVolume, exec, ddcutil -d 1 setvcp 10 - 10"
       ];
     };
   };
