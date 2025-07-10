@@ -305,4 +305,11 @@
       profile = "high-quality";
     };
   };
+
+  gtk = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+    };
+  };
 }
