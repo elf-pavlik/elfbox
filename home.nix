@@ -323,9 +323,10 @@
     };
   };
 
-  gtk = {
-    enable = true;
-    catppuccin = {
+  gtk.enable = true;
+
+  catppuccin = {
+    gtk = {
       enable = true;
     };
   };
