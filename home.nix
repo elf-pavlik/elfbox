@@ -95,6 +95,8 @@
     enable = true;
   };
 
+  programs.mpvpaper.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -107,9 +109,14 @@
         inactive_timeout = 2;
         hide_on_key_press = true;
       };
+      misc = {
+        disable_splash_rendering = true;
+        disable_hyprland_logo = true;
+      };
       exec-once = [
         "[workspace 1 silent] qutebrowser"
         "[workspace 2 silent] ghostty"
+        "mpvpaper -o 'no-audio --loop-file=inf --panscan=1.0 --hwdec=auto' DP-1 ~/backgrounds/dragon.mp4"
       ];
       "$mod" = "SUPER";
       bind = [
