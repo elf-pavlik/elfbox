@@ -210,7 +210,13 @@
       nvim-lspconfig
       avante-nvim
       render-markdown-nvim
+      mini-surround
     ];
+    extras = {
+      coding = {
+        mini-surround.enable = true;
+      };
+    };
     pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
     pluginsFile."avante.lua".source = ./avante.lua;
