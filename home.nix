@@ -305,7 +305,6 @@
       tabs.show = "never";
       statusbar.show = "always";
       colors.webpage.preferred_color_scheme = "dark";
-      colors.webpage.bg = "#24273a";
       editor.command = ["ghostty" "-e" "nvim" "{file}" "+startinsert" "+call cursor({line}, {column})"];
     };
   };
