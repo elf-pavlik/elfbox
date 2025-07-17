@@ -216,6 +216,10 @@
       coding = {
         mini-surround.enable = true;
       };
+      lang = {
+        nix.enable = true;
+        typescript.enable = true;
+      };
     };
     pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
