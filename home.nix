@@ -45,6 +45,7 @@
     fastfetch
     amdgpu_top
     glances
+    spacedrive
   ];
 
   home.sessionVariables = {
