@@ -124,6 +124,8 @@
     portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
+  programs.appimage.enable = true;
+
   # programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
