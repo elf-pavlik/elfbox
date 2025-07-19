@@ -144,6 +144,8 @@
         ", XF86AudioMute , exec, swayosd-client --output-volume mute-toggle"
         "$mod, XF86AudioRaiseVolume, exec, ddcutil -d 1 setvcp 10 + 10"
         "$mod, XF86AudioLowerVolume, exec, ddcutil -d 1 setvcp 10 - 10"
+        "$mod, F10, pass, class:^(com\.obsproject\.Studio)$"
+        "$mod, F11, pass, class:^(com\.obsproject\.Studio)$"
       ];
     };
   };
