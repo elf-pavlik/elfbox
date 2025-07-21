@@ -217,6 +217,7 @@
       neogit
       diffview-nvim
       plenary-nvim
+      multicursors-nvim
     ];
     extras = {
       coding = {
@@ -232,6 +233,7 @@
     pluginsFile."avante.lua".source = ./avante.lua;
     pluginsFile."catppuccin.lua".source = ./catppuccin.lua;
     pluginsFile."neogit.lua".source = ./neogit.lua;
+    pluginsFile."multicursors.lua".source = ./multicursors.lua;
   };
 
   programs.ripgrep.enable = true;
