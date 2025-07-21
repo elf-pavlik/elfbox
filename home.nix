@@ -214,6 +214,9 @@
       avante-nvim
       render-markdown-nvim
       mini-surround
+      neogit
+      diffview-nvim
+      plenary-nvim
     ];
     extras = {
       coding = {
@@ -228,6 +231,7 @@
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
     pluginsFile."avante.lua".source = ./avante.lua;
     pluginsFile."catppuccin.lua".source = ./catppuccin.lua;
+    pluginsFile."neogit.lua".source = ./neogit.lua;
   };
 
   programs.ripgrep.enable = true;
