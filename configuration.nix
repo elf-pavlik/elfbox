@@ -156,7 +156,10 @@
     rocmOverrideGfx = "10.3.0";
   };
 
-  services.open-webui.enable = true;
+  services.open-webui = {
+    enable = true;
+    port = 9000;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
