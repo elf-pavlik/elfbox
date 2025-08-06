@@ -102,6 +102,17 @@
     addKeysToAgent = "yes";
   };
 
+  programs.keepassxc = {
+    enable = true;
+    settings = {
+      General. ConfigVersion = 2;
+      Browser.Enabled = true;
+      GUI = {
+        ApplicationTheme = "dark";
+      };
+    };
+  };
+
   services.swayosd = {
     enable = true;
   };
