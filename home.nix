@@ -113,6 +113,15 @@
     };
   };
 
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
+
+  programs.gpg = {
+    enable = true;
+  };
+
   services.swayosd = {
     enable = true;
   };
@@ -340,6 +349,14 @@
       statusbar.show = "always";
       colors.webpage.preferred_color_scheme = "dark";
       editor.command = ["ghostty" "-e" "nvim" "{file}" "+startinsert" "+call cursor({line}, {column})"];
+    };
+    keyBindings = {
+      normal = {
+        "pw" = "spawn --userscript qute-keepassxc --key 379559042C492245";
+      };
+      insert = {
+        "<Alt-Shift-u>" = "spawn --userscript qute-keepassxc --key 379559042C492245";
+      };
     };
   };
 
