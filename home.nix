@@ -46,6 +46,7 @@
     amdgpu_top
     glances
     spacedrive
+    taskwarrior-tui
   ];
 
   home.sessionVariables = {
@@ -339,6 +340,10 @@
     config = {
       profile = "high-quality";
     };
+  };
+
+  programs.taskwarrior = {
+    enable = true;
   };
 
   gtk.enable = true;
