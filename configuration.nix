@@ -2,19 +2,26 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, hyprland, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  hyprland,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./autologin.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "discord-canary"
       "keymapp"
+      "open-webui"
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -22,7 +29,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   hardware.keyboard.zsa.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
@@ -40,7 +50,10 @@
     interfaces.wlp6s0.useDHCP = false;
     interfaces.enp7s0 = {
       ipv4.addresses = [
-        { address = "10.0.106.1"; prefixLength = 16; }
+        {
+          address = "10.0.106.1";
+          prefixLength = 16;
+        }
       ];
     };
     defaultGateway = {
@@ -73,9 +86,6 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-
-
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -111,7 +121,10 @@
   users.users.elf-pavlik = {
     isNormalUser = true;
     createHome = true;
-    extraGroups = [ "wheel" "docker"];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -123,6 +136,8 @@
     # make sure to also set the portal package, so that they are in sync
     portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
+
+  services.getty.autologinUser = "elf-pavlik";
 
   programs.appimage.enable = true;
 
@@ -192,4 +207,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-

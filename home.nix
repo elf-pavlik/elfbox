@@ -1,4 +1,10 @@
-{ config, pkgs, system, inputs, ... }:
+{
+  config,
+  pkgs,
+  system,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -54,8 +60,8 @@
   };
 
   catppuccin = {
-      enable = true;
-      flavor = "macchiato";
+    enable = true;
+    flavor = "macchiato";
   };
 
   programs.git = {
@@ -109,7 +115,7 @@
   programs.keepassxc = {
     enable = true;
     settings = {
-      General. ConfigVersion = 2;
+      General.ConfigVersion = 2;
       Browser.Enabled = true;
       GUI = {
         ApplicationTheme = "dark";
@@ -194,6 +200,10 @@
     };
     initContent = ''
       source <(COMPLETE=zsh jj)
+
+      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+        dbus-run-session Hyprland
+      fi
     '';
   };
 
@@ -224,7 +234,7 @@
         success_symbol = "[](bold green) ";
         error_symbol = "[✗](bold red) ";
       };
-    }; 
+    };
   };
 
   programs.walker = {
@@ -326,23 +336,6 @@
     ];
   };
 
-  programs.obs-studio.package = pkgs.obs-studio.overrideAttrs (oldAttrs: {
-    src = pkgs.fetchFromGitHub {
-      owner = "obsproject";
-      repo = "obs-studio";
-      rev = "12c6febae21f369da50f09d511b54eadc1dc1342"; # https://github.com/obsproject/obs-studio/pull/11906
-      sha256 = "sha256-DIlAMCdve7wfbMV5YCd3qJnZ2xwJMmQD6LamGP7ECOA=";
-      fetchSubmodules = true;
-    };
-    version = "31.1.0-beta1";
-    patches = builtins.filter (
-      patch:
-      !(
-        builtins.baseNameOf (toString patch) == "Enable-file-access-and-universal-access-for-file-URL.patch"
-      )
-    ) oldAttrs.patches;
-  });
-
   programs.chromium.enable = true;
 
   programs.qutebrowser = {
@@ -352,7 +345,14 @@
       tabs.show = "never";
       statusbar.show = "always";
       colors.webpage.preferred_color_scheme = "dark";
-      editor.command = ["ghostty" "-e" "nvim" "{file}" "+startinsert" "+call cursor({line}, {column})"];
+      editor.command = [
+        "ghostty"
+        "-e"
+        "nvim"
+        "{file}"
+        "+startinsert"
+        "+call cursor({line}, {column})"
+      ];
     };
     keyBindings = {
       normal = {
@@ -366,18 +366,18 @@
 
   programs.mpv = {
     enable = true;
-    
+
     package = (
       pkgs.mpv-unwrapped.wrapper {
         scripts = with pkgs.mpvScripts; [
         ];
-    
+
         mpv = pkgs.mpv-unwrapped.override {
           waylandSupport = true;
         };
       }
     );
-    
+
     config = {
       profile = "high-quality";
     };
@@ -388,12 +388,6 @@
   };
 
   gtk.enable = true;
-
-  catppuccin = {
-    gtk = {
-      enable = true;
-    };
-  };
 
   qt = {
     enable = true;
