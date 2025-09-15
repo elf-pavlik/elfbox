@@ -77,6 +77,12 @@
       "devbox.json"
       "devbox.lock"
     ];
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+      };
+    };
   };
 
   programs.jujutsu = {
@@ -191,6 +197,15 @@
     };
   };
 
+  programs.ripgrep.enable = true;
+  programs.bat.enable = true;
+  programs.fd.enable = true;
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    icons = "auto";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -198,6 +213,7 @@
     history.size = 10000;
     shellAliases = {
       ll = "ls -l";
+      cat = "bat --paging=never --style=plain";
     };
     initContent = ''
       source <(COMPLETE=zsh jj)
@@ -280,8 +296,6 @@
     pluginsFile."neogit.lua".source = ./neogit.lua;
     pluginsFile."multicursors.lua".source = ./multicursors.lua;
   };
-
-  programs.ripgrep.enable = true;
 
   programs.tmux = {
     enable = true;
