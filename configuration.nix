@@ -22,6 +22,7 @@
       "discord-canary"
       "keymapp"
       "open-webui"
+      "gitbutler"
     ];
 
   # Use the systemd-boot EFI boot loader.

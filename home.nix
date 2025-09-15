@@ -53,6 +53,7 @@
     glances
     spacedrive
     taskwarrior-tui
+    gitbutler
   ];
 
   home.sessionVariables = {
