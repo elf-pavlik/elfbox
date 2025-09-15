@@ -63,6 +63,12 @@
   catppuccin = {
     enable = true;
     flavor = "macchiato";
+    kvantum = {
+      enable = true;
+      apply = true;
+      flavor = "macchiato";
+      accent = "blue";
+    };
   };
 
   programs.git = {
@@ -132,7 +138,7 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry.package = pkgs.pinentry-qt;
   };
 
   programs.gpg = {
@@ -409,12 +415,6 @@
     platformTheme.name = "kvantum";
     style = {
       name = "kvantum";
-      catppuccin = {
-        enable = true;
-        apply = true;
-        flavor = "macchiato";
-        accent = "blue";
-      };
     };
   };
 }
