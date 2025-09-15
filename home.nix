@@ -285,6 +285,11 @@
       diffview-nvim
       plenary-nvim
       multicursors-nvim
+      nvim-nio
+      neotest
+      neotest-vitest
+      neotest-jest
+      neotest-playwright
     ];
     extras = {
       coding = {
@@ -294,12 +299,16 @@
         nix.enable = true;
         typescript.enable = true;
       };
+      test = {
+        core.enable = true;
+      };
     };
     pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
     pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
     pluginsFile."avante.lua".source = ./avante.lua;
     pluginsFile."catppuccin.lua".source = ./catppuccin.lua;
     pluginsFile."neogit.lua".source = ./neogit.lua;
+    pluginsFile."neotest.lua".source = ./neotest.lua;
     pluginsFile."multicursors.lua".source = ./multicursors.lua;
   };
 
