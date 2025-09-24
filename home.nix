@@ -270,6 +270,7 @@
     extraPackages = with pkgs; [
       typescript-language-server
       vue-language-server
+      vscode-js-debug
     ];
   };
 
@@ -285,6 +286,10 @@
       diffview-nvim
       plenary-nvim
       multicursors-nvim
+      nvim-dap
+      nvim-dap-ui
+      nvim-dap-vscode-js
+      nvim-dap-virtual-text
       nvim-nio
       neotest
       neotest-vitest
@@ -298,6 +303,9 @@
       lang = {
         nix.enable = true;
         typescript.enable = true;
+      };
+      dap = {
+        core.enable = true;
       };
       test = {
         core.enable = true;
