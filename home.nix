@@ -54,6 +54,7 @@
     spacedrive
     taskwarrior-tui
     gitbutler
+    libnotify
   ];
 
   home.sessionVariables = {
@@ -146,6 +147,12 @@
   };
 
   services.swayosd = {
+    enable = true;
+  };
+
+  services.systembus-notify.enable = true;
+
+  services.swaync = {
     enable = true;
   };
 
