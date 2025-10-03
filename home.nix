@@ -90,6 +90,11 @@
         side-by-side = true;
       };
     };
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
   };
 
   programs.jujutsu = {
