@@ -8,7 +8,6 @@
 
 {
   imports = [
-    inputs.LazyVim.homeManagerModules.default
     inputs.walker.homeManagerModules.default
     inputs.catppuccin.homeModules.catppuccin
   ];
@@ -55,6 +54,13 @@
     taskwarrior-tui
     gitbutler
     libnotify
+    neovim
+    nodejs
+    python3
+    clang-tools
+    gcc
+    gnumake
+    tree-sitter
   ];
 
   home.sessionVariables = {
@@ -275,61 +281,6 @@
   programs.walker = {
     enable = true;
     runAsService = true;
-  };
-
-  programs.neovim = {
-    defaultEditor = true;
-    extraPackages = with pkgs; [
-      typescript-language-server
-      vue-language-server
-      vscode-js-debug
-    ];
-  };
-
-  programs.lazyvim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [
-      vim-tmux-navigator
-      nvim-lspconfig
-      avante-nvim
-      render-markdown-nvim
-      mini-surround
-      neogit
-      diffview-nvim
-      plenary-nvim
-      multicursors-nvim
-      nvim-dap
-      nvim-dap-ui
-      nvim-dap-vscode-js
-      nvim-dap-virtual-text
-      nvim-nio
-      neotest
-      neotest-vitest
-      neotest-jest
-      neotest-playwright
-    ];
-    extras = {
-      coding = {
-        mini-surround.enable = true;
-      };
-      lang = {
-        nix.enable = true;
-        typescript.enable = true;
-      };
-      dap = {
-        core.enable = true;
-      };
-      test = {
-        core.enable = true;
-      };
-    };
-    pluginsFile."vim-tmux-navigator.lua".source = ./vim-tmux-navigator.lua;
-    pluginsFile."lspconfig.lua".source = ./lspconfig.lua;
-    pluginsFile."avante.lua".source = ./avante.lua;
-    pluginsFile."catppuccin.lua".source = ./catppuccin.lua;
-    pluginsFile."neogit.lua".source = ./neogit.lua;
-    pluginsFile."neotest.lua".source = ./neotest.lua;
-    pluginsFile."multicursors.lua".source = ./multicursors.lua;
   };
 
   programs.tmux = {

@@ -111,6 +111,8 @@
     data-root = "/home/docker";
   };
 
+  programs.nix-ld.enable = true;
+
   services.udisks2.enable = true;
 
   programs.obs-studio = {
