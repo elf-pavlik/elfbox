@@ -61,6 +61,9 @@
     gcc
     gnumake
     tree-sitter
+    unzip
+    wget
+    cargo
   ];
 
   home.sessionVariables = {
