@@ -81,6 +81,8 @@
     };
   };
 
+  xdg.configFile."nvim".source = ./nvim;
+
   programs.git = {
     enable = true;
     userEmail = "elf-pavlik@hackers4peace.net";
