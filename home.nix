@@ -245,6 +245,7 @@
       cat = "bat --paging=never --style=plain";
     };
     initContent = ''
+      EDITOR=nvim
       source <(COMPLETE=zsh jj)
 
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
