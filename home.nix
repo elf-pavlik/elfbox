@@ -52,7 +52,6 @@
     glances
     spacedrive
     taskwarrior-tui
-    gitbutler
     libnotify
     neovim
     nodejs
