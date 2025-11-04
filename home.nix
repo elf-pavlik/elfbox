@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  system,
   inputs,
   ...
 }:
@@ -32,7 +30,6 @@
   xdg.enable = true;
 
   home.packages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.system}.default
     pavucontrol
     yazi
     discord-canary
