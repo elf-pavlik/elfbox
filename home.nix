@@ -338,6 +338,14 @@
     enableTmuxIntegration = true;
   };
 
+  programs.opencode = {
+    enable = true;
+    settings = {
+      theme = "catppuccin";
+      autoupdate = false;
+    };
+  };
+
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
