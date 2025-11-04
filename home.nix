@@ -84,25 +84,27 @@
 
   programs.git = {
     enable = true;
-    userEmail = "elf-pavlik@hackers4peace.net";
-    userName = "elf-pavlik";
-    aliases = {
-      fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
-      l = "log --graph --decorate --pretty=oneline --abbrev-commit";
-    };
     ignores = [
       "devbox.json"
       "devbox.lock"
     ];
-    delta = {
-      enable = true;
-      options = {
-        side-by-side = true;
+    settings = {
+      user.email = "elf-pavlik@hackers4peace.net";
+      user.name = "elf-pavlik";
+      aliases = {
+        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+        l = "log --graph --decorate --pretty=oneline --abbrev-commit";
       };
-    };
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
+      delta = {
+        enable = true;
+        options = {
+          side-by-side = true;
+        };
+      };
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
       };
     };
   };
@@ -138,7 +140,7 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    matchBlocks."*".addKeysToAgent = "yes";
   };
 
   programs.keepassxc = {
