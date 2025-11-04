@@ -291,7 +291,6 @@
 
   programs.tmux = {
     enable = true;
-    shortcut = "a";
     aggressiveResize = true;
     baseIndex = 1;
     newSession = true;
@@ -304,6 +303,11 @@
     ];
 
     extraConfig = ''
+
+      # Unbind default prefix and set Alt+Space
+      unbind C-b
+      set -g prefix M-Space
+
       # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
       set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",*256col*:Tc"
