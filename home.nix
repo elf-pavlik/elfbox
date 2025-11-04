@@ -86,13 +86,13 @@
       "devbox.json"
       "devbox.lock"
     ];
+    aliases = {
+      fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+      l = "log --graph --decorate --pretty=oneline --abbrev-commit";
+    };
     settings = {
       user.email = "elf-pavlik@hackers4peace.net";
       user.name = "elf-pavlik";
-      aliases = {
-        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
-        l = "log --graph --decorate --pretty=oneline --abbrev-commit";
-      };
       delta = {
         enable = true;
         options = {
@@ -343,6 +343,26 @@
     settings = {
       theme = "catppuccin";
       autoupdate = false;
+      provider = {
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "Ollama (local)";
+          options = {
+            baseURL = "http://localhost:11434/v1";
+          };
+          models = {
+            "deepseek-coder-v2:16b" = {
+              name = "Deepseek Coder V2";
+            };
+            "qwen2.5-coder:14b" = {
+              name = "Qwen2.5 Coder";
+            };
+            "qwen3:14b" = {
+              name = "Qwen3";
+            };
+          };
+        };
+      };
     };
   };
 
