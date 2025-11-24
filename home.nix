@@ -61,6 +61,7 @@
     unzip
     wget
     cargo
+    libreoffice
   ];
 
   home.sessionVariables = {
