@@ -100,10 +100,8 @@
           side-by-side = true;
         };
       };
-      extraConfig = {
-        init = {
-          defaultBranch = "main";
-        };
+      init = {
+        defaultBranch = "main";
       };
     };
   };
