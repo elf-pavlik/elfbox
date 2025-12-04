@@ -342,6 +342,7 @@
     settings = {
       theme = "catppuccin";
       autoupdate = false;
+      small_model = "ollama/qwen2.5-coder:14b";
       provider = {
         ollama = {
           npm = "@ai-sdk/openai-compatible";
