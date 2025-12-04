@@ -104,6 +104,12 @@
         defaultBranch = "main";
       };
     };
+    extraConfig = {
+      gpg.format = "ssh";
+      "gpg \"ssh\"".defaultKey = "/home/elf-pavlik/.ssh/id_ed25519.pub";
+      user.signingkey = "/home/elf-pavlik/.ssh/id_ed25519.pub";
+      commit.gpgsign = true;
+    };
   };
 
   programs.jujutsu = {
