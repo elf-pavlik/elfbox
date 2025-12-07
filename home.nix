@@ -345,7 +345,6 @@
 
   programs.opencode = {
     enable = true;
-    package = inputs.nixpkgs-opencode.legacyPackages.${system}.opencode;
     settings = {
       theme = "catppuccin";
       autoupdate = false;
