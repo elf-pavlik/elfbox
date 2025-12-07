@@ -62,6 +62,7 @@
     wget
     cargo
     libreoffice
+    pinta
   ];
 
   home.sessionVariables = {
