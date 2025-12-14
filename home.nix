@@ -63,6 +63,7 @@
     cargo
     libreoffice
     pinta
+    bruno
   ];
 
   home.sessionVariables = {
