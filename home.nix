@@ -441,4 +441,25 @@
       name = "kvantum";
     };
   };
+
+  programs.trippy = {
+    enable = true;
+    settings = {
+      bindings = {
+        toggle-help = "h";
+        toggle-help-alt = "?";
+        toggle-settings = "s";
+        toggle-settings-dns = "3";
+        toggle-settings-geoip = "4";
+        toggle-settings-trace = "2";
+        toggle-settings-tui = "1";
+      };
+      theme-colors = {
+        bg-color = "black";
+        border-color = "gray";
+        tab-text-color = "green";
+        text-color = "gray";
+      };
+    };
+  };
 }
