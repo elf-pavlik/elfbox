@@ -12,6 +12,10 @@
       url = "github:jetify-com/devbox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dagger = {
+      url = "github:dagger/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     walker.url = "github:abenz1267/walker/59be8e0d0f0ae6edd7df686711608fbdf50311a0";
     hyprland.url = "github:hyprwm/Hyprland";
     catppuccin.url = "github:catppuccin/nix";
