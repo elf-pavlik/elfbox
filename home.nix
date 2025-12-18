@@ -64,7 +64,6 @@
     libreoffice
     pinta
     bruno
-    inputs.dagger.packages.${pkgs.system}.dagger
   ];
 
   home.sessionVariables = {
