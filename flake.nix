@@ -26,7 +26,6 @@
     }@inputs:
     {
       nixosConfigurations.elfbox = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
           ./configuration.nix
@@ -38,7 +37,6 @@
             home-manager.users.elf-pavlik = import ./home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
-              system = "x86_64-linux";
             };
           }
         ];
