@@ -89,13 +89,13 @@
       "devbox.json"
       "devbox.lock"
     ];
-    aliases = {
-      fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
-      l = "log --graph --decorate --pretty=oneline --abbrev-commit";
-    };
     settings = {
       user.email = "elf-pavlik@hackers4peace.net";
       user.name = "elf-pavlik";
+      alias = {
+        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+        l = "log --graph --decorate --pretty=oneline --abbrev-commit";
+      };
       delta = {
         enable = true;
         options = {
@@ -105,8 +105,6 @@
       init = {
         defaultBranch = "main";
       };
-    };
-    extraConfig = {
       gpg.format = "ssh";
       "gpg \"ssh\"".defaultKey = "/home/elf-pavlik/.ssh/id_ed25519.pub";
       user.signingkey = "/home/elf-pavlik/.ssh/id_ed25519.pub";
