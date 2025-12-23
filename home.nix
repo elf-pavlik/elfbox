@@ -344,7 +344,7 @@
   programs.opencode = {
     enable = true;
     settings = {
-      theme = "catppuccin";
+      theme = "catppuccin-macchiato";
       autoupdate = false;
       small_model = "ollama/qwen2.5-coder:14b";
       provider = {
