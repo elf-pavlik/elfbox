@@ -270,6 +270,14 @@
     '';
   };
 
+  programs.atuin = {
+    enable = false;
+    enableZshIntegration = true;
+    settings = {
+      keymap_mode = "vim-normal";
+    };
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
