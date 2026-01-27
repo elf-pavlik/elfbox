@@ -94,12 +94,7 @@
       alias = {
         fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
         l = "log --graph --decorate --pretty=oneline --abbrev-commit";
-      };
-      delta = {
-        enable = true;
-        options = {
-          side-by-side = true;
-        };
+        s = "show --ext-diff";
       };
       init = {
         defaultBranch = "main";
@@ -248,6 +243,18 @@
       updates = {
         auto_update = false;
       };
+    };
+  };
+
+  programs.difftastic = {
+    enable = true;
+    git = {
+      enable = true;
+      diffToolMode = true;
+    };
+    options = {
+      color = "always";
+      display = "side-by-side-show-both";
     };
   };
 
