@@ -438,17 +438,6 @@
   programs.mpv = {
     enable = true;
 
-    package = (
-      pkgs.mpv-unwrapped.wrapper {
-        scripts = with pkgs.mpvScripts; [
-        ];
-
-        mpv = pkgs.mpv-unwrapped.override {
-          waylandSupport = true;
-        };
-      }
-    );
-
     config = {
       profile = "high-quality";
     };
