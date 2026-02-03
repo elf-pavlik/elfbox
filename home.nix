@@ -374,25 +374,12 @@
     settings = {
       theme = "catppuccin-macchiato";
       autoupdate = false;
-      small_model = "ollama/qwen2.5-coder:14b";
-      provider = {
-        ollama = {
-          npm = "@ai-sdk/openai-compatible";
-          name = "Ollama (local)";
-          options = {
-            baseURL = "http://localhost:11434/v1";
-          };
-          models = {
-            "deepseek-coder-v2:16b" = {
-              name = "Deepseek Coder V2";
-            };
-            "qwen2.5-coder:14b" = {
-              name = "Qwen2.5 Coder";
-            };
-            "qwen3:14b" = {
-              name = "Qwen3";
-            };
-          };
+      small_model = "opencode/minimax-m2.1-free";
+      mcp = {
+        container-use = {
+          type = "local";
+          command = ["container-use" "stdio"];
+          enabled = true;
         };
       };
     };
