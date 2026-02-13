@@ -29,6 +29,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelModules = [ "iptable_nat" ];
+  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 443;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [
@@ -63,7 +64,7 @@
       interface = "enp7s0";
     };
     hosts = {
-      "127.0.0.1" = [ "server" ];
+      "127.0.0.1" = [ "server" "auth" "app.auth" "registry" "data" "id" "alice.id" "bob.id" ];
     };
   };
 
@@ -182,6 +183,10 @@
     enable = true;
     port = 9000;
   };
+
+  security.pki.certificateFiles = [
+    ./mkcert/rootCA.pem
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
