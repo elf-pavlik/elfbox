@@ -63,6 +63,7 @@
     libreoffice
     pinta
     bruno
+    kdePackages.kdenlive
   ];
 
   home.sessionVariables = {
