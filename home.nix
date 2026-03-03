@@ -64,6 +64,7 @@
     pinta
     bruno
     kdePackages.kdenlive
+    unison-ucm
   ];
 
   home.sessionVariables = {
@@ -91,7 +92,7 @@
     ];
     settings = {
       user.email = "elf-pavlik@hackers4peace.net";
-      user.name = "elf-pavlik";
+      user.name = "elf Pavlik";
       alias = {
         fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
         l = "log --graph --decorate --pretty=oneline --abbrev-commit";
@@ -375,7 +376,7 @@
     settings = {
       theme = "catppuccin-macchiato";
       autoupdate = false;
-      small_model = "opencode/minimax-m2.1-free";
+      small_model = "opencode/minimax-m2.5-free";
       mcp = {
         container-use = {
           type = "local";
