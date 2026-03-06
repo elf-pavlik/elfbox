@@ -3,3 +3,9 @@
 -- Add any additional options here
 
 vim.opt.wildignore:remove(".dagger")
+
+vim.filetype.add({
+  extension = {
+    trig = "turtle",
+  },
+})
