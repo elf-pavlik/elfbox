@@ -437,8 +437,26 @@
   programs.taskwarrior = {
     enable = true;
   };
+  gtk = {
+    enable = true;
 
-  gtk.enable = true;
+    gtk3.theme = {
+      package = pkgs.catppuccin-gtk.override {
+        variant = "macchiato";
+        accents = [ "blue" ];
+        size = "standard";
+      };
+      name = "catppuccin-macchiato-blue-standard";
+    };
+    gtk4.theme = {
+      package = pkgs.catppuccin-gtk.override {
+        variant = "macchiato";
+        accents = [ "blue" ];
+        size = "standard";
+      };
+      name = "catppuccin-macchiato-blue-standard";
+    };
+  };
 
   qt = {
     enable = true;
