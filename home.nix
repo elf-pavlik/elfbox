@@ -132,7 +132,7 @@
       background-opacity = 0.8;
     };
   };
-  
+
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
@@ -161,6 +161,11 @@ config.window_padding = {
 -- Finally, return the configuration to wezterm:
 return config
     '';
+  };
+
+  programs.television = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   services.ssh-agent = {
