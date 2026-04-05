@@ -173,6 +173,8 @@
   };
 
   programs.mpvpaper.enable = true;
+  programs.hyprshot.enable = true;
+  programs.satty.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -199,7 +201,7 @@
       bind = [
         "$mod, Q, exec, ghostty"
         "$mod, R, exec, walker"
-        "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+        "$mod, S, exec, hyprshot -m region --raw | satty --filename -"
         "$mod, X, killactive"
         "$mod, F, fullscreen"
         "$mod, V, togglefloating"
