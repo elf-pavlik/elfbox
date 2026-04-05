@@ -20,8 +20,6 @@
     builtins.elem (lib.getName pkg) [
       "discord-canary"
       "keymapp"
-      "open-webui"
-      "gitbutler"
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -168,21 +166,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-    environmentVariables = {
-      HCC_AMDGPU_TARGET = "gfx1031"; # used to be necessary, but doesn't seem to anymore
-    };
-    # results in environment variable "HSA_OVERRIDE_GFX_VERSION=10.3.0"
-    rocmOverrideGfx = "10.3.0";
-  };
-
-  services.open-webui = {
-    enable = true;
-    port = 9000;
-  };
 
   security.pki.certificateFiles = [
     ./mkcert/rootCA.pem
