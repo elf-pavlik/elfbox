@@ -139,6 +139,7 @@
     extraConfig = ''
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
+local config = wezterm.config_builder()
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -157,6 +158,36 @@ config.window_padding = {
   top = 10,
   bottom = 10,
 }
+-- timeout_milliseconds defaults to 1000 and can be omitted
+config.leader = { key = 'Space', mods = 'ALT', timeout_milliseconds = 1000 }
+config.keys = {
+  { key = ',', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
+  { key = 'c', mods = 'LEADER', action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+  { key = 'n', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(1) },
+  { key = 'p', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(-1) },
+  { key = '0', mods = 'LEADER', action = wezterm.action.ActivateTab(0) },
+  { key = '1', mods = 'LEADER', action = wezterm.action.ActivateTab(1) },
+  { key = '2', mods = 'LEADER', action = wezterm.action.ActivateTab(2) },
+  { key = '3', mods = 'LEADER', action = wezterm.action.ActivateTab(3) },
+  { key = '4', mods = 'LEADER', action = wezterm.action.ActivateTab(4) },
+}
+local workspace_picker = wezterm.plugin.require("https://github.com/isseii10/workspace-picker.wezterm")
+workspace_picker.setup({
+  zoxide_path = "${pkgs.zoxide}/bin/zoxide",
+	labels = {
+		workspace = "",
+		zoxide = "",
+		current = "",
+	},
+	colors = {
+		workspace_prefix = "#cdd6f4",
+		zoxide_prefix = "#cdd6f4",
+		current_indicator = "#cdd6f4",
+		text = "#cdd6f4",
+		path = "#6c7086",
+	},
+})
+workspace_picker.apply_to_config(config)
 
 -- Finally, return the configuration to wezterm:
 return config
