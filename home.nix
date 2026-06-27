@@ -446,11 +446,9 @@ return config
       autoupdate = false;
       small_model = "opencode/minimax-m2.5-free";
       mcp = {
-        container-use = {
-          type = "local";
-          command = ["container-use" "stdio"];
-          enabled = true;
-        };
+      };
+      provider = {
+        nvidia = {};
       };
     };
   };
