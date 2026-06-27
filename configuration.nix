@@ -38,6 +38,8 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
 
+  networking.resolvconf.enable = false;
+
   environment.etc."resolv.conf".text = ''
     nameserver 127.0.0.1
     nameserver 1.1.1.1
