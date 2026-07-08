@@ -195,6 +195,14 @@ return config
     '';
   };
 
+  programs.zed-editor = {
+    enable = true;
+    extensions = [
+      "catppuccin"
+      "catppuccin-icons"
+    ];
+  };
+
   programs.television = {
     enable = true;
     enableZshIntegration = true;
