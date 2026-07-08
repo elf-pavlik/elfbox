@@ -74,6 +74,7 @@
   catppuccin = {
     enable = true;
     flavor = "macchiato";
+    hyprland.enable = false;
     kvantum = {
       enable = true;
       apply = true;
@@ -246,6 +247,7 @@ return config
     enable = true;
     package = null;
     portalPackage = null;
+    configType = "hyprlang";
     settings = {
       decoration = {
         rounding = 20;
