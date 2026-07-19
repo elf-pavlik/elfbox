@@ -15,6 +15,10 @@
     walker.url = "github:abenz1267/walker/59be8e0d0f0ae6edd7df686711608fbdf50311a0";
     hyprland.url = "github:hyprwm/Hyprland";
     catppuccin.url = "github:catppuccin/nix";
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +29,10 @@
       ...
     }@inputs:
     {
+      nixConfig = {
+        extra-substituters = [ "https://cache.numtide.com" ];
+        extra-trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
+      };
       nixosConfigurations.elfbox = nixpkgs.lib.nixosSystem {
         specialArgs = inputs;
         modules = [

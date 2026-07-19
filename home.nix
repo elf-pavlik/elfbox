@@ -29,7 +29,7 @@
   fonts.fontconfig.enable = true;
   xdg.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     pavucontrol
     yazi
     discord-canary
@@ -66,6 +66,9 @@
     kdePackages.kdenlive
     unison-ucm
     jaq
+    # llm-agents
+    but
+    pi
   ];
 
   home.sessionVariables = {
