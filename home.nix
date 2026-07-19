@@ -65,6 +65,7 @@
     bruno
     kdePackages.kdenlive
     unison-ucm
+    jaq
   ];
 
   home.sessionVariables = {
@@ -346,6 +347,7 @@ return config
     shellAliases = {
       ll = "ls -l";
       cat = "bat --paging=never --style=plain";
+      jq = "jaq";
     };
     initContent = ''
       EDITOR=nvim
