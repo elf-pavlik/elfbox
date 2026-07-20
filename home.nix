@@ -68,6 +68,7 @@
     jaq
     playwright
     playwright-driver
+    nixd
     # llm-agents
     but
     pi
