@@ -66,6 +66,8 @@
     kdePackages.kdenlive
     unison-ucm
     jaq
+    playwright
+    playwright-driver
     # llm-agents
     but
     pi
