@@ -490,12 +490,9 @@ return config
       statusbar.show = "always";
       colors.webpage.preferred_color_scheme = "dark";
       editor.command = [
-        "ghostty"
-        "-e"
-        "nvim"
+        "zeditor"
+        "--wait"
         "{file}"
-        "+startinsert"
-        "+call cursor({line}, {column})"
       ];
     };
     keyBindings = {
