@@ -4,6 +4,9 @@
   ...
 }:
 
+let
+  mindwalk = pkgs.callPackage ./packages/mindwalk.nix {};
+in
 {
   imports = [
     inputs.walker.homeManagerModules.default
@@ -30,6 +33,7 @@
   xdg.enable = true;
 
   home.packages = with pkgs; with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+    mindwalk
     pavucontrol
     yazi
     discord-canary
