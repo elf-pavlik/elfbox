@@ -484,7 +484,12 @@ return config
     ];
   };
 
-  programs.chromium.enable = true;
+  programs.chromium = {
+    enable = true;
+    package = pkgs.chromium.override {
+      enableWideVine = true;
+    };
+  };
 
   programs.qutebrowser = {
     enable = true;

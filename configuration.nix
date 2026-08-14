@@ -20,6 +20,9 @@
     builtins.elem (lib.getName pkg) [
       "discord-canary"
       "keymapp"
+      "chromium"
+      "chromium-unwrapped"
+      "widevine-cdm"
     ];
 
   # Use the systemd-boot EFI boot loader.
