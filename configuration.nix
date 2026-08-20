@@ -23,6 +23,7 @@
       "chromium"
       "chromium-unwrapped"
       "widevine-cdm"
+      "zoom"
     ];
 
   # Use the systemd-boot EFI boot loader.
