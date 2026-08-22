@@ -81,7 +81,7 @@
 
   catppuccin = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
     flavor = "macchiato";
     hyprland.enable = false;
     kvantum = {
@@ -216,6 +216,10 @@ return config
     enable = true;
     enableZshIntegration = true;
   };
+
+  # television creates a stock config.toml on first run; home-manager now
+  # manages this file (catppuccin sets the theme), so allow the overwrite.
+  xdg.configFile."television/config.toml".force = true;
 
   services.ssh-agent = {
     enable = true;
@@ -483,7 +487,7 @@ return config
     enable = true;
     git = {
       enable = true;
-      diffToolMode = true;
+      mode = "difftool";
     };
     options = {
       color = "always";
