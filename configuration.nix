@@ -26,6 +26,12 @@
       "zoom"
     ];
 
+  # Catppuccin is themed per-user in home.nix; keep the system module
+  # explicitly off to silence the autoEnable deprecation warning.
+  catppuccin = {
+    autoEnable = false;
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -82,6 +82,7 @@
 
   catppuccin = {
     enable = true;
+    autoEnable = false;
     flavor = "macchiato";
     hyprland.enable = false;
     kvantum = {
@@ -223,7 +224,8 @@ return config
 
   programs.ssh = {
     enable = true;
-    matchBlocks."*".addKeysToAgent = "yes";
+    enableDefaultConfig = false;
+    settings."*".addKeysToAgent = "yes";
   };
 
   programs.keepassxc = {
@@ -461,8 +463,10 @@ return config
 
   programs.opencode = {
     enable = true;
-    settings = {
+    tui = {
       theme = "catppuccin-macchiato";
+    };
+    settings = {
       autoupdate = false;
       small_model = "opencode/minimax-m2.5-free";
       mcp = {
