@@ -73,6 +73,7 @@
     but
     pi
     mindwalk
+    codegraph
   ];
 
   home.sessionVariables = {
