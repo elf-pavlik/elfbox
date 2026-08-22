@@ -46,7 +46,6 @@
     fastfetch
     amdgpu_top
     glances
-    spacedrive
     taskwarrior-tui
     libnotify
     neovim
