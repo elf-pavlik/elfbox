@@ -6,7 +6,6 @@
 
 {
   imports = [
-    inputs.walker.homeManagerModules.default
     inputs.catppuccin.homeModules.catppuccin
   ];
   # Home Manager needs a bit of information about you and the
@@ -407,9 +406,17 @@ return config
     };
   };
 
-  programs.walker = {
+  services.elephant = {
     enable = true;
-    runAsService = true;
+    package = pkgs.elephant.override {
+      enabledProviders = [ "desktopapplications" "runner" "files" ];
+    };
+    settings.providers.default = [ "desktopapplications" "runner" "files" ];
+  };
+
+  services.walker = {
+    enable = true;
+    systemd.enable = true;
   };
 
   programs.tmux = {
