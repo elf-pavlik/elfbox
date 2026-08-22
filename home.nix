@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   ...
 }:
@@ -264,51 +265,194 @@ return config
     enable = true;
     package = null;
     portalPackage = null;
-    configType = "hyprlang";
+    configType = "lua";
     settings = {
-      decoration = {
-        rounding = 20;
+      # local mod = "SUPER" (was: $mod = SUPER)
+      mod = {
+        _var = "SUPER";
       };
-      cursor = {
-        inactive_timeout = 2;
-        hide_on_key_press = true;
+
+      # hl.config({ ... }) — plain variable categories
+      config = {
+        decoration = {
+          rounding = 20;
+        };
+        cursor = {
+          inactive_timeout = 2;
+          hide_on_key_press = true;
+        };
+        misc = {
+          disable_splash_rendering = true;
+          disable_hyprland_logo = true;
+        };
       };
-      misc = {
-        disable_splash_rendering = true;
-        disable_hyprland_logo = true;
+
+      # hl.on("hyprland.start", function() ... end) — was: exec-once
+      on = {
+        _args = [
+          "hyprland.start"
+          (lib.generators.mkLuaInline ''
+            function()
+              hl.exec_cmd("qutebrowser", { workspace = "1", no_initial_focus = true })
+              hl.exec_cmd("ghostty", { workspace = "2", no_initial_focus = true })
+              hl.exec_cmd("mpvpaper -o 'no-audio --loop-file=inf --panscan=1.0 --hwdec=auto' DP-1 ~/backgrounds/dragon.mp4")
+            end
+          '')
+        ];
       };
-      exec-once = [
-        "[workspace 1 silent] qutebrowser"
-        "[workspace 2 silent] ghostty"
-        "mpvpaper -o 'no-audio --loop-file=inf --panscan=1.0 --hwdec=auto' DP-1 ~/backgrounds/dragon.mp4"
-      ];
-      "$mod" = "SUPER";
+
+      # hl.bind(key, dispatcher, opts?) — one entry per keybind
       bind = [
-        "$mod, Q, exec, ghostty"
-        "$mod, R, exec, walker"
-        "$mod, S, exec, hyprshot -m region --raw | satty --filename -"
-        "$mod, X, killactive"
-        "$mod, F, fullscreen"
-        "$mod, V, togglefloating"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, J, movewindow, l"
-        "$mod, K, movewindow, r"
-        "$mod, u, workspace, 1"
-        "$mod, i, workspace, 2"
-        "$mod, o, workspace, 3"
-        "$mod, p, workspace, 4"
-        "$mod SHIFT, u, movetoworkspace, 1"
-        "$mod SHIFT, i, movetoworkspace, 2"
-        "$mod SHIFT, o, movetoworkspace, 3"
-        "$mod SHIFT, p, movetoworkspace, 4"
-        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume 10"
-        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -10"
-        ", XF86AudioMute , exec, swayosd-client --output-volume mute-toggle"
-        "$mod, XF86AudioRaiseVolume, exec, ddcutil -d 1 setvcp 10 + 10"
-        "$mod, XF86AudioLowerVolume, exec, ddcutil -d 1 setvcp 10 - 10"
-        "$mod, F10, pass, class:^(com\.obsproject\.Studio)$"
-        "$mod, F11, pass, class:^(com\.obsproject\.Studio)$"
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + Q"'')
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("ghostty")'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + R"'')
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("walker")'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + S"'')
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("hyprshot -m region --raw | satty --filename -")'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + X"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.close()'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + F"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + V"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.float({ action = "toggle" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + H"'')
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "left" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + L"'')
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "right" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + J"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "left" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + K"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "right" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + U"'')
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "1" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + I"'')
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "2" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + O"'')
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "3" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + P"'')
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ workspace = "4" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + SHIFT + U"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = "1" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + SHIFT + I"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = "2" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + SHIFT + O"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = "3" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + SHIFT + P"'')
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = "4" })'')
+          ];
+        }
+        {
+          _args = [
+            "XF86AudioRaiseVolume"
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("swayosd-client --output-volume 10")'')
+          ];
+        }
+        {
+          _args = [
+            "XF86AudioLowerVolume"
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("swayosd-client --output-volume -10")'')
+          ];
+        }
+        {
+          _args = [
+            "XF86AudioMute"
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle")'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + XF86AudioRaiseVolume"'')
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("ddcutil -d 1 setvcp 10 + 10")'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + XF86AudioLowerVolume"'')
+            (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("ddcutil -d 1 setvcp 10 - 10")'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + F10"'')
+            (lib.generators.mkLuaInline ''hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" })'')
+          ];
+        }
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''mod .. " + F11"'')
+            (lib.generators.mkLuaInline ''hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" })'')
+          ];
+        }
       ];
     };
   };
