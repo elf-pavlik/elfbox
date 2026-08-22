@@ -510,7 +510,7 @@ return config
       source <(COMPLETE=zsh jj)
 
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-        dbus-run-session Hyprland
+        dbus-run-session start-hyprland
       fi
     '';
   };
