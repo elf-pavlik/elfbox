@@ -32,7 +32,7 @@
   home.packages = with pkgs; with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     pavucontrol
     yazi
-    discord-canary
+    discord
     devbox
     nerd-fonts.fira-code
     nerd-fonts.symbols-only

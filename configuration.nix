@@ -18,8 +18,8 @@
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
-      "discord-canary"
-      "discord-canary-unwrapped"
+      "discord"
+      "discord-unwrapped"
       "keymapp"
       "chromium"
       "chromium-unwrapped"
