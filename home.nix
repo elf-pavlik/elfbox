@@ -646,11 +646,18 @@ return config
     package = pkgs.chromium.override {
       enableWideVine = true;
     };
+    commandLineArgs = [
+      "--ozone-platform=wayland"
+    ];
   };
 
   programs.qutebrowser = {
     enable = true;
-
+    extraConfig = ''
+      c.qt.environ = {
+        "QTWEBENGINE_FORCE_USE_GBM": "0",
+      };
+    '';
     settings = {
       tabs.show = "never";
       statusbar.show = "always";
