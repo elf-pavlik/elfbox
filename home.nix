@@ -232,9 +232,13 @@ return config
     settings."*".addKeysToAgent = "yes";
   };
 
+  #xdg.autostart.enable = true;
+
   programs.keepassxc = {
     enable = true;
+    #autostart = true;
     settings = {
+      FdoSecrets.Enabled = true;
       General.ConfigVersion = 2;
       Browser.Enabled = true;
       GUI = {
