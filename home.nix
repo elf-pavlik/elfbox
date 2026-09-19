@@ -8,6 +8,8 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
+    # runtime deps + env vars for the official Delta (Zed Industries) prebuilt
+    ./delta.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
