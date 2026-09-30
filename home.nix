@@ -76,6 +76,7 @@
     pi
     mindwalk
     codegraph
+    openspec
   ];
 
   home.sessionVariables = {
