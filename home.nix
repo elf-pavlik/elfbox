@@ -71,6 +71,7 @@
     playwright-driver
     nixd
     zoom-us
+    bun
     # llm-agents
     but
     pi
