@@ -72,6 +72,7 @@
     nixd
     zoom-us
     bun
+    sysstat
     # llm-agents
     but
     pi

@@ -128,6 +128,14 @@
 
   services.udisks2.enable = true;
 
+  services.sysstat = {
+    enable = true;
+    # run every minute, 59 samples at 1s spacing per run: ~59s of
+    # continuous 1s sampling per minute (59 < 60 leaves no overlap)
+    collect-frequency = "*:*";
+    collect-args = "1 59";
+  };
+
   programs.obs-studio = {
     enable = true;
     enableVirtualCamera = true;
