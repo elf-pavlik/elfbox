@@ -20,10 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents = {
-      # upstream main is broken (packages/git-surgeon and packages/workmux
-      # reference an undefined `installAgentSkills` argument, which breaks the
-      # whole packages output); pinned to last good commit until upstream fixes it
-      url = "github:numtide/llm-agents.nix/00842f8eb0b7fc602679de04dc8c562c831bbcf2";
+      url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
