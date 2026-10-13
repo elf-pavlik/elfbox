@@ -87,6 +87,26 @@
         "type": "github"
       }
     },
+    "delta": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791543300,
+        "narHash": "sha256-QLomEmH5+1flz42ONMI8yFc4fNuKITGRj0RSkxPsxyE=",
+        "owner": "zed-industries",
+        "repo": "delta-nix",
+        "rev": "6aa23dbf48a75e77e50e5a9e9856cd2e24471a88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zed-industries",
+        "repo": "delta-nix",
+        "type": "github"
+      }
+    },
     "devbox": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -598,6 +618,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "delta": "delta",
         "devbox": "devbox",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

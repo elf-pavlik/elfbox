@@ -23,6 +23,11 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    delta = {
+      url = "github:zed-industries/delta-nix";
+      # use the system's graphics stack (see delta-nix README)
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

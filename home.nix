@@ -8,7 +8,7 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
-    # runtime deps + env vars for the official Delta (Zed Industries) prebuilt
+    # official Delta package (flake input) + keychain D-Bus shim
     ./delta.nix
   ];
   # Home Manager needs a bit of information about you and the
