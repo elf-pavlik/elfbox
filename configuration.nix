@@ -25,7 +25,7 @@
       "chromium"
       "chromium-unwrapped"
       "widevine-cdm"
-      "zoom"
+      "singal-desktop"
     ];
 
   # Catppuccin is themed per-user in home.nix; keep the system module

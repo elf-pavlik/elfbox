@@ -70,8 +70,8 @@
     playwright
     playwright-driver
     nixd
-    zoom-us
     bun
+    signal-desktop
     sysstat
     # llm-agents
     but
@@ -79,6 +79,7 @@
     mindwalk
     codegraph
     openspec
+    opencode2
   ];
 
   home.sessionVariables = {
@@ -623,22 +624,6 @@ return config
   programs.sesh = {
     enable = true;
     enableTmuxIntegration = true;
-  };
-
-  programs.opencode = {
-    enable = true;
-    tui = {
-      theme = "catppuccin-macchiato";
-    };
-    settings = {
-      autoupdate = false;
-      small_model = "opencode/minimax-m2.5-free";
-      mcp = {
-      };
-      provider = {
-        nvidia = {};
-      };
-    };
   };
 
   programs.obs-studio = {
