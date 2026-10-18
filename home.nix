@@ -75,7 +75,10 @@
     sysstat
     # llm-agents
     but
-    pi
+    # Node build of pi (useBun = false): extensions that spawn a JS runtime,
+    # e.g. openwiki's MCP bridge via process.execPath, require process.execPath
+    # to be Node, which the Bun standalone binary is not.
+    (pi.override { useBun = false; })
     mindwalk
     codegraph
     openspec
