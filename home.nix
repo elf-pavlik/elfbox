@@ -73,6 +73,7 @@
     bun
     signal-desktop
     sysstat
+    openshift
     # llm-agents
     but
     # Node build of pi (useBun = false): extensions that spawn a JS runtime,
