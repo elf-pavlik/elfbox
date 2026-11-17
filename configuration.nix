@@ -13,6 +13,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # OpenShell from a newer upstream tag than the nixpkgs pin.
+    ./openshell.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate =

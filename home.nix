@@ -75,6 +75,7 @@
     sysstat
     openshift
     ragenix
+    openshell
     # llm-agents
     but
     # Node build of pi (useBun = false): extensions that spawn a JS runtime,
