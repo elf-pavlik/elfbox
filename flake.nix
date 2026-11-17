@@ -28,6 +28,10 @@
       # use the system's graphics stack (see delta-nix README)
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Rex (stable channel isn't published yet, so use preview).
+    rex = {
+      url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
+    };
   };
 
   outputs =

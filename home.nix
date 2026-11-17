@@ -8,6 +8,7 @@
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin
+    inputs.rex.homeManagerModules.default
     # official Delta package (flake input) + keychain D-Bus shim
     ./delta.nix
   ];
@@ -237,6 +238,11 @@ return config
   services.ssh-agent = {
     enable = true;
   };
+
+  # Rex: install the CLI (plus terminfo and ssh guard, programs.ssh is already on)
+  # and keep a personal server running as this account.
+  programs.rex.enable = true;
+  services.rex.enable = true;
 
   programs.ssh = {
     enable = true;
