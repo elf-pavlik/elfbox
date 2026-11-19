@@ -44,10 +44,18 @@
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 443;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    # Prebuilt Zed Nightly (flake.nix `zed` input); the key is required, the
+    # flake's own nixConfig is not trusted for local trees.
+    extra-substituters = [ "https://zed.cachix.org" ];
+    extra-trusted-public-keys = [
+      "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
+    ];
+  };
   hardware.keyboard.zsa.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.

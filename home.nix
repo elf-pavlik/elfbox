@@ -220,6 +220,12 @@ return config
 
   programs.zed-editor = {
     enable = true;
+    # Zed Nightly from the upstream flake (see flake.nix `zed` input), served
+    # prebuilt by zed.cachix.org. Note: no FHS wrapper, so extensions that ship
+    # prebuilt binaries may not run; swap back to
+    # `inputs.nixpkgs-zed.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zed-editor`
+    # for the stable, FHS-wrapped build.
+    package = inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default;
     extensions = [
       "catppuccin"
       "catppuccin-icons"

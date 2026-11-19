@@ -3,6 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # Zed only: track nixpkgs master so the editor gets new releases without
+    # moving the whole system. Bump with `nix flake update nixpkgs-zed`.
+    # Currently unused by home.nix (kept as the fallback for stable Zed, e.g.
+    # once 1.30 ships `title_bar.show`).
+    nixpkgs-zed.url = "github:NixOS/nixpkgs";
+    # Zed Nightly (upstream package) — the stable channel in nixpkgs-zed lagged
+    # behind `title_bar.show` (zed#65671). This rev is already built and served
+    # by https://zed.cachix.org (see nix.settings in configuration.nix); bumping
+    # it to a rev that is not cached means a multi-hour Rust build, so change
+    # the rev deliberately and then run `nix flake update zed`.
+    zed.url = "github:zed-industries/zed/f693ad0847e4faacd7d630fc78c54695bb862266";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
