@@ -49,12 +49,6 @@
       "nix-command"
       "flakes"
     ];
-    # Prebuilt Zed Nightly (flake.nix `zed` input); the key is required, the
-    # flake's own nixConfig is not trusted for local trees.
-    extra-substituters = [ "https://zed.cachix.org" ];
-    extra-trusted-public-keys = [
-      "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
-    ];
   };
   hardware.keyboard.zsa.enable = true;
 

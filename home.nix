@@ -220,12 +220,12 @@ return config
 
   programs.zed-editor = {
     enable = true;
-    # Zed Nightly from the upstream flake (see flake.nix `zed` input), served
-    # prebuilt by zed.cachix.org. Note: no FHS wrapper, so extensions that ship
-    # prebuilt binaries may not run; swap back to
-    # `inputs.nixpkgs-zed.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zed-editor`
-    # for the stable, FHS-wrapped build.
-    package = inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    # Official stable release (FHS-wrapped) from the `nixpkgs-zed` input, which
+    # tracks nixpkgs master for faster Zed bumps. Master is not Hydra-built, so
+    # a bump is only cheap once the same derivation is already on
+    # cache.nixos.org (i.e. after nixos-unstable picks up that version);
+    # otherwise expect a local Rust build.
+    package = inputs.nixpkgs-zed.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zed-editor;
     extensions = [
       "catppuccin"
       "catppuccin-icons"

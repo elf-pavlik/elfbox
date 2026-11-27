@@ -3,17 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    # Zed only: track nixpkgs master so the editor gets new releases without
-    # moving the whole system. Bump with `nix flake update nixpkgs-zed`.
-    # Currently unused by home.nix (kept as the fallback for stable Zed, e.g.
-    # once 1.30 ships `title_bar.show`).
+    # Zed only: track nixpkgs master so the editor gets new stable releases
+    # without moving the whole system. Bump with `nix flake update nixpkgs-zed`.
+    # home.nix takes `zed-editor` from here, so we run the official stable
+    # release (1.30.2+ ships `title_bar.show`, zed#65671) instead of nightly.
     nixpkgs-zed.url = "github:NixOS/nixpkgs";
-    # Zed Nightly (upstream package) — the stable channel in nixpkgs-zed lagged
-    # behind `title_bar.show` (zed#65671). This rev is already built and served
-    # by https://zed.cachix.org (see nix.settings in configuration.nix); bumping
-    # it to a rev that is not cached means a multi-hour Rust build, so change
-    # the rev deliberately and then run `nix flake update zed`.
-    zed.url = "github:zed-industries/zed/f693ad0847e4faacd7d630fc78c54695bb862266";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,8 +16,15 @@
       url = "github:jetify-com/devbox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Hyprland is pinned to the last rev that starts reliably.
+    # Upstream main (6e787199, 2026-11-19) dropped the null check on
+    # FULLSCREEN_WINDOW in IHyprRenderer::handleFullscreenSettings(), so any
+    # monitor whose EDID advertises HDR (our DP-1 does) crashes the compositor
+    # with a SIGSEGV on the first frame. Hyprland 0.57.2 in nixpkgs has the
+    # same bug. Drop the rev (and run `nix flake update hyprland`) once the
+    # null check is restored upstream.
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/49b566a9780413a2498b7e8b925337ddb41a41a7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin = {
